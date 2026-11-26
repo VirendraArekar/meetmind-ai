@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: meetmind-backend-test
+  datasource:
+    url: jdbc:h2:mem:meetmind;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+  flyway:
+    enabled: false
+
+app:
+  version: 0.2.0-test
+  seed:
+    demo-data: false
+  cors:
+    allowed-origins: http://localhost:5173
+  jwt:
+    secret: dGVzdC1zZWNyZXQta2V5LWZvci1tZWV0bWluZC1haS1qd3QtdG9rZW4tMjU2LWJpdHM=
+    access-expiration-ms: 900000
+    refresh-expiration-ms: 604800000
+  storage:
+    s3-enabled: false
+    local-dir: ${java.io.tmpdir}/meetmind-test-uploads
+  ai:
+    transcription-provider: heuristic
+    llm-provider: heuristic
+    embedding-provider: heuristic
